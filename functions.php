@@ -7,6 +7,17 @@ function lk_theme_support()
 }
 add_action('after_setup_theme', 'lk_theme_support');
 
+function lk_menus()
+{
+    $locations = array(
+        'primary' => "Desktop Primary Left Sidebar",
+        'footer' => "Footer Menu Items",
+    );
+
+    register_nav_menus($locations);
+}
+add_action('init', 'lk_menus');
+
 function lk_register_styles()
 {
     $version = wp_get_theme()->get('Version');
