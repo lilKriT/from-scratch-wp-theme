@@ -39,3 +39,33 @@ function lk_register_scripts()
     wp_enqueue_script('followandrew-main', get_template_directory_uri() . "/assets/js/main.js", array(), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'lk_register_scripts');
+
+function lk_widget_areas()
+{
+    register_sidebar(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            // 'before_widget' => '<ul class="social-list list-inline py-3 mx-auto">',
+            // 'after_widget' => '</ul>'
+            'before_widget' => '',
+            'after_widget' => '',
+            'name' => 'Sidebar area',
+            'id' => 'sidebar-1',
+            'description' => 'Sidebar Widget area'
+        )
+    );
+
+    register_sidebar(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            'before_widget' => '',
+            'after_widget' => '',
+            'name' => 'Footer area',
+            'id' => 'footer-1',
+            'description' => 'Footer Widget area'
+        )
+    );
+}
+add_action('widgets_init', 'lk_widget_areas');
